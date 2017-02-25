@@ -1,7 +1,6 @@
 #!/bin/python
 
 import sys
-import numpy as np
 
 compare_list = []
 whole_compare_list = []
@@ -12,9 +11,15 @@ pi = 3.1415926535897932384626433832795028841971693993751
 min,max = raw_input().strip().split(' ')
 min,max = [long(min),long(max)]
 # your code goes here
-def find_nearest(array, value):
-	array = np.array(array)
-	idx = (np.abs(array-value)).argmin()
+def find_nearest(arr, value):
+	aux_arr = []
+	for i in arr:	
+		aux_arr.append(abs(i-value))
+	small = aux_arr[len(aux_arr)-1]
+	for j in aux_arr:
+		if j < small:
+			small = j
+	idx = aux_arr.index(small)
 	return idx
 
 if min >= 1 and min <= 10 ** 15 and max >= 1 and max <= 10 ** 15 and min <= max:	

@@ -74,19 +74,9 @@ for m,j in enumerate(range(1,h+1)):
 		else:
 			canvas.append('.')
 	canvas.append('\n')
-
-canvas_list = []
 for i in canvas:
-	canvas_list.append([i])
-
-print "Real OutPut\n"
-for i in canvas_list:
-	print ''.join(i),
-
-for i in canvas_list:
 	file_.write("\b".join(i),)
 file_.close()
-print "File OutPut\n"
 with open("circle.txt","r") as content_file:
 	content = content_file.read()
 	print content
